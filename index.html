@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Aiur Nanzatov | Gameplay & AI Programmer</title>
+  <!-- Google Fonts & simple CSS reset -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #0a0c10;
+      font-family: 'Inter', sans-serif;
+      color: #eef2ff;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    /* custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #14181f;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #3b4252;
+      border-radius: 20px;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* glassmorphism / modern UI */
+    .glass-card {
+      background: rgba(18, 22, 30, 0.65);
+      backdrop-filter: blur(4px);
+      border-radius: 2rem;
+      border: 1px solid rgba(72, 187, 255, 0.2);
+      transition: transform 0.2s ease, border-color 0.2s;
+    }
+
+    .glass-card:hover {
+      border-color: rgba(72, 187, 255, 0.6);
+      transform: translateY(-3px);
+    }
+
+    /* gradient text */
+    .gradient-text {
+      background: linear-gradient(135deg, #a5f3fc, #38bdf8, #818cf8);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: transparent;
+      border: 1px solid #38bdf8;
+      padding: 0.6rem 1.4rem;
+      border-radius: 40px;
+      font-weight: 500;
+      color: #38bdf8;
+      transition: all 0.25s;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    .btn-outline:hover {
+      background: #38bdf8;
+      color: #0a0c10;
+      box-shadow: 0 0 12px rgba(56, 189, 248, 0.4);
+    }
+
+    /* media placeholder styling */
+    .media-placeholder {
+      background: #11161f;
+      border-radius: 1.5rem;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border: 1px dashed #2d3a4e;
+      transition: all 0.2s;
+      text-align: center;
+      color: #7f8fa4;
+      font-size: 0.9rem;
+      gap: 0.75rem;
+      cursor: pointer;
+    }
+
+    .media-placeholder:hover {
+      border-color: #38bdf8;
+      background: #0f1620;
+    }
+
+    .media-icon {
+      font-size: 2rem;
+      opacity: 0.7;
+    }
+
+    /* tags / skill chips */
+    .skill-chip {
+      background: #1e293b;
+      padding: 0.2rem 1rem;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #cbd5e6;
+      display: inline-block;
+    }
+
+    .project-tag {
+      background: #0f172ab3;
+      border-radius: 40px;
+      padding: 0.2rem 0.8rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: #94a3b8;
+    }
+
+    h1, h2, h3 {
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      border-left: 4px solid #38bdf8;
+      padding-left: 1rem;
+    }
+
+    /* responsive grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 2rem;
+      margin-top: 1rem;
+    }
+
+    footer {
+      border-top: 1px solid #1e2a3a;
+      margin-top: 4rem;
+      padding: 2rem 0;
+      text-align: center;
+      color: #7f8fa4;
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 760px) {
+      .container {
+        padding: 0 1.2rem;
+      }
+      h2 {
+        font-size: 1.6rem;
+      }
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .hero {
+      padding: 3rem 0 2rem 0;
+    }
+
+    .links-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .publication-item {
+      background: #0f131c;
+      border-radius: 1rem;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-left: 3px solid #38bdf8;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <!-- Hero Section -->
+  <div class="hero">
+    <div style="display: flex; justify-content: space-between; flex-wrap: wrap; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+      <div>
+        <h1 style="font-size: 3rem; font-weight: 800; letter-spacing: -0.03em;">AIUR <span class="gradient-text">NANZATOV</span></h1>
+        <p style="font-size: 1.3rem; font-weight: 500; margin-top: 0.5rem; color: #b9c7db;">Gameplay & AI Programmer</p>
+      </div>
+      <div class="links-row">
+        <a href="https://github.com/AiurNanzatov" target="_blank" class="btn-outline">🐙 GitHub</a>
+        <a href="https://linkedin.com/in/aiur-nanzatov-889882216" target="_blank" class="btn-outline">🔗 LinkedIn</a>
+      </div>
+    </div>
+    <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; margin: 1rem 0 1.2rem;">
+      <span class="skill-chip">C++</span>
+      <span class="skill-chip">Unreal Engine 5</span>
+      <span class="skill-chip">Unity</span>
+      <span class="skill-chip">AI Systems</span>
+      <span class="skill-chip">Multiplayer</span>
+      <span class="skill-chip">Procedural Generation</span>
+    </div>
+    <p style="max-width: 780px; font-size: 1.05rem; color: #cdd9f4;">📍 St. John's, NL, Canada</p>
+  </div>
+
+  <!-- ABOUT ME section -->
+  <section style="margin: 2rem 0 2.5rem;">
+    <div class="glass-card" style="padding: 2rem;">
+      <h2 style="border-left: none; padding-left: 0; font-size: 1.8rem;">ABOUT ME</h2>
+      <p style="font-size: 1.05rem; margin-top: 0.5rem;">I'm a Gameplay and AI Programmer with experience developing gameplay systems in Unreal Engine 5 and Unity.<br><br>
+      I enjoy building systems that make virtual worlds feel alive—from enemy AI and procedural generation to multiplayer gameplay and XR applications. My interests lie at the intersection of gameplay programming, AI behavior, world simulation, and immersive technologies.<br><br>
+      I am particularly inspired by games such as <strong>Dark Souls, Vampyr, Red Dead Redemption 2, and S.T.A.L.K.E.R.</strong>, where AI and world systems contribute heavily to player immersion.</p>
+    </div>
+  </section>
+
+  <!-- PROJECTS section -->
+  <section style="margin: 2.5rem 0;">
+    <h2>⚡ PROJECTS</h2>
+    <div class="projects-grid">
+      
+      <!-- Project 1: UE5 Enemy AI System -->
+      <div class="glass-card" style="padding: 1.5rem; display: flex; flex-direction: column;">
+        <h3 style="font-size: 1.5rem;">UE5 Enemy AI System</h3>
+        <p style="color: #a0afc7; margin: 0.5rem 0 1rem 0;">Designed and implemented a modular enemy AI architecture in Unreal Engine 5. Scalable AI supporting multiple enemy archetypes.</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.2rem;">
+          <span class="project-tag">AI Perception</span>
+          <span class="project-tag">Behavior Trees</span>
+          <span class="project-tag">C++</span>
+          <span class="project-tag">Navigation</span>
+        </div>
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 1.5rem;">
+  <iframe 
+    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+    src="https://www.youtube.com/embed/i6AYl6jUjZA"
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen>
+  </iframe>
+</div>
+        <p style="margin-top: 1rem; font-size: 0.9rem;"><strong>Technical Challenge:</strong> Maintaining maintainable architecture with growing enemy complexity while minimizing duplicated logic.</p>
+      </div>
+
+      <!-- Project 2: Procedural World Generation -->
+      <div class="glass-card" style="padding: 1.5rem; display: flex; flex-direction: column;">
+        <h3 style="font-size: 1.5rem;">Procedural World Generation</h3>
+        <p style="color: #a0afc7; margin: 0.5rem 0 1rem 0;">Runtime procedural terrain generation in Unity with mountains, lakes, forests, and dynamic environment placement.</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.2rem;">
+          <span class="project-tag">Unity/C#</span>
+          <span class="project-tag">Perlin Noise</span>
+          <span class="project-tag">Runtime Terrain</span>
+        </div>
+        <div class="media-placeholder" id="media-procedural" onclick="alert('📌 Placeholder: Insert Procedural World Gen video/screenshots here.')">
+          <div class="media-icon">🗺️🎥</div>
+          <div>🌄 Video Demo / Screenshot</div>
+        </div>
+        <p style="margin-top: 1rem; font-size: 0.9rem;"><strong>Challenge:</strong> Generating believable landscapes while maintaining navigability and visual variety.</p>
+      </div>
+
+      <!-- Project 3: Multiplayer Game Prototype -->
+      <div class="glass-card" style="padding: 1.5rem; display: flex; flex-direction: column;">
+        <h3 style="font-size: 1.5rem;">Multiplayer Game Prototype</h3>
+        <p style="color: #a0afc7; margin: 0.5rem 0 1rem 0;">Built multiplayer systems with Photon Fusion — matchmaking, session discovery, state synchronization.</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.2rem;">
+          <span class="project-tag">Photon Fusion</span>
+          <span class="project-tag">Netcode</span>
+          <span class="project-tag">C#</span>
+        </div>
+        <div class="media-placeholder" id="media-multiplayer" onclick="alert('📌 Placeholder: Add Multiplayer demo footage or screenshots here.')">
+          <div class="media-icon">👥🎮</div>
+          <div>🕹️ Video Demo / Screenshot</div>
+        </div>
+        <p style="margin-top: 1rem; font-size: 0.9rem;"><strong>Challenge:</strong> Maintaining synchronization consistency while minimizing network overhead.</p>
+      </div>
+
+      <!-- Project 4: XR Underwater Inspection Platform -->
+      <div class="glass-card" style="padding: 1.5rem; display: flex; flex-direction: column;">
+        <h3 style="font-size: 1.5rem;">XR Underwater Inspection</h3>
+        <p style="color: #a0afc7; margin: 0.5rem 0 0.25rem 0;">Publication-based project (MDPI Sensors 2024). Unity XR app for inspection of underwater assets using photogrammetry.</p>
+        <span style="font-size: 0.75rem; color: #5f7f9e; margin-bottom: 1rem;">MDPI Sensors 2024</span>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.2rem;">
+          <span class="project-tag">HoloLens</span>
+          <span class="project-tag">XR Toolkit</span>
+          <span class="project-tag">Photogrammetry</span>
+        </div>
+        <div class="media-placeholder" id="media-xr" onclick="alert('📌 Placeholder: Insert XR demo video or HoloLens capture.')">
+          <div class="media-icon">🥽🌊</div>
+          <div>🔍 XR Demo / Screenshot</div>
+        </div>
+        <p style="margin-top: 1rem; font-size: 0.9rem;"><strong>Challenge:</strong> Large reconstruction meshes while maintaining usability on XR devices.</p>
+      </div>
+
+      <!-- Project 5: 3D Reconstruction Pipeline -->
+      <div class="glass-card" style="padding: 1.5rem; display: flex; flex-direction: column;">
+        <h3 style="font-size: 1.5rem;">3D Reconstruction Pipeline</h3>
+        <p style="color: #a0afc7; margin: 0.5rem 0 1rem 0;">Python-based data processing pipelines for photogrammetry, backend support and ML-assisted analysis.</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.2rem;">
+          <span class="project-tag">Python</span>
+          <span class="project-tag">OpenDroneMap</span>
+          <span class="project-tag">REST APIs</span>
+        </div>
+        <div class="media-placeholder" id="media-pipeline" onclick="alert('📌 Placeholder: Insert 3D reconstruction pipeline screenshots or diagram.')">
+          <div class="media-icon">📐🖥️</div>
+          <div>📊 Pipeline visualization</div>
+        </div>
+        <p style="margin-top: 1rem; font-size: 0.9rem;"><strong>Challenge:</strong> Managing large datasets while preserving reconstruction quality and efficiency.</p>
+      </div>
+
+      <!-- BONUS: Current project highlight card -->
+      <div class="glass-card" style="padding: 1.5rem; background: linear-gradient(145deg, #0b1120, #0f1622); border-color: #2d4a6e;">
+        <h3 style="font-size: 1.5rem;">✨ CURRENT PROJECT</h3>
+        <p style="font-weight: 600; font-size: 1.2rem; margin: 0.5rem 0 0.25rem;">Advanced NPC AI System (UE5)</p>
+        <p style="color: #cbd9f0;">Focus: Enemy perception, pursuit & combat decisions, state-based AI architecture, scalable NPC frameworks + future crowd/group behaviors.</p>
+        <div style="margin-top: 1rem;">
+          <span class="skill-chip" style="background: #0f2b3b;">Behavior Trees</span>
+          <span class="skill-chip" style="background: #0f2b3b;">Blackboard</span>
+          <span class="skill-chip" style="background: #0f2b3b;">Group AI</span>
+        </div>
+        <!-- optional placeholder for current project progress -->
+        <div class="media-placeholder" style="margin-top: 1rem; aspect-ratio: 16/9;" onclick="alert('📌 Placeholder: Showcase your Advanced NPC AI dev footage or WIP demo.')">
+          <div class="media-icon">🧠⚙️</div>
+          <div>🎯 Work-in-progress preview</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PUBLICATIONS section -->
+  <section style="margin: 3rem 0 2rem;">
+    <h2>📄 PUBLICATIONS</h2>
+    <div class="publication-item">
+      <strong>XR-Based Underwater Asset Inspection Platform</strong><br>
+      MDPI Sensors 2024 — <a href="https://www.mdpi.com/1424-8220/24/16/5168" target="_blank" style="color:#38bdf8;">doi.org/10.3390/s24165168</a>
+    </div>
+    <div class="publication-item">
+      <strong>Mixed Reality Visualization and Inspection System</strong><br>
+      MDPI Electronics 2025 — <a href="https://www.mdpi.com/2079-9292/14/17/3368" target="_blank" style="color:#38bdf8;">doi.org/10.3390/electronics14173368</a>
+    </div>
+  </section>
+
+  <!-- TECHNICAL SKILLS (comprehensive block) -->
+  <section style="margin: 2rem 0;">
+    <h2>🛠️ TECHNICAL SKILLS</h2>
+    <div style="display: flex; flex-wrap: wrap; gap: 1.8rem; justify-content: space-between; background: #0f131c99; border-radius: 2rem; padding: 1.8rem;">
+      <div>
+        <p style="font-weight: 700; margin-bottom: 0.7rem;">Programming</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+          <span class="skill-chip">C++</span><span class="skill-chip">C#</span><span class="skill-chip">Python</span>
+          <span class="skill-chip">JavaScript</span><span class="skill-chip">TypeScript</span><span class="skill-chip">Go</span>
+        </div>
+        <p style="font-weight: 700; margin: 1rem 0 0.7rem;">Game Development</p>
+        <div><span class="skill-chip">Unreal Engine 5</span><span class="skill-chip">Unity</span><span class="skill-chip">Gameplay Systems</span>
+        <span class="skill-chip">AI Programming</span><span class="skill-chip">Behavior Trees</span><span class="skill-chip">Procedural Gen</span>
+        <span class="skill-chip">Multiplayer Networking</span><span class="skill-chip">State Machines</span></div>
+      </div>
+      <div>
+        <p style="font-weight: 700; margin-bottom: 0.7rem;">Backend & Databases</p>
+        <div><span class="skill-chip">Node.js</span><span class="skill-chip">Express</span><span class="skill-chip">REST APIs</span>
+        <span class="skill-chip">GraphQL</span><span class="skill-chip">PostgreSQL</span><span class="skill-chip">MongoDB</span></div>
+        <p style="font-weight: 700; margin: 1rem 0 0.7rem;">Cloud & DevOps</p>
+        <div><span class="skill-chip">AWS</span><span class="skill-chip">Azure</span><span class="skill-chip">Docker</span><span class="skill-chip">CI/CD</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REPLACE NOTE: all Media placeholders are ready for your future videos / images 
+       Below is a special section for larger video highlight (optional flexible block) -->
+  <section style="margin: 2rem 0;">
+    <div class="glass-card" style="padding: 1.8rem;">
+      <h3 style="font-size: 1.5rem;">🎥 Portfolio Media Showcase</h3>
+      <p style="margin-bottom: 1rem;">Here you can embed your best gameplay trailer, AI demo, or any full portfolio reel. Replace placeholder below.</p>
+      <div class="media-placeholder" style="aspect-ratio: 21/9; min-height: 240px;" onclick="alert('📌 Insert your main demo reel / compilation video here (YouTube embed or local video).')">
+        <div class="media-icon">🎞️✨</div>
+        <div>🎬 Main Showcase Video / Reel (Drag & drop later)</div>
+        <div style="font-size: 0.7rem;">click to remind — replace with iframe or img</div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Aiur Nanzatov — Gameplay & AI Programmer | Full Stack · GameDev · AI/ML </p>
+    <p style="margin-top: 0.5rem;">📌 <strong>Placeholders are ready:</strong> each media block awaits your final screenshots, GIFs, or video embeds.<br>Simply replace the placeholder divs with &lt;img&gt;, &lt;video&gt; or &lt;iframe&gt; elements.</p>
+  </footer>
+</div>
+
+<!-- small script to add interactive note (doesn't break design) 
+     this just shows dev-friendly reminder but remains invisible for normal use -->
+<script>
+  // Optional: log to console that placeholders can be replaced dynamically.
+  console.log("Portfolio template ready — replace each .media-placeholder inner HTML with your actual media (video, img, iframe).");
+  // If you want to make placeholders easier to customize, double-click event:
+  const placeholders = document.querySelectorAll('.media-placeholder');
+  placeholders.forEach(ph => {
+    ph.addEventListener('dblclick', (e) => {
+      e.stopPropagation();
+      alert('✏️ Replace this placeholder: insert <img src=\"...\"> or <video controls src=\"...\">, or embed your YouTube video. Feel free to edit the HTML directly.');
+    });
+  });
+</script>
+</body>
+</html>
