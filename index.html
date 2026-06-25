@@ -21,7 +21,6 @@
       scroll-behavior: smooth;
     }
 
-    /* custom scrollbar */
     ::-webkit-scrollbar {
       width: 8px;
     }
@@ -39,7 +38,6 @@
       padding: 0 2rem;
     }
 
-    /* glassmorphism / modern UI */
     .glass-card {
       background: rgba(18, 22, 30, 0.65);
       backdrop-filter: blur(4px);
@@ -53,7 +51,6 @@
       transform: translateY(-3px);
     }
 
-    /* gradient text */
     .gradient-text {
       background: linear-gradient(135deg, #a5f3fc, #38bdf8, #818cf8);
       background-clip: text;
@@ -82,7 +79,27 @@
       box-shadow: 0 0 12px rgba(56, 189, 248, 0.4);
     }
 
-    /* media placeholder styling */
+    .btn-github {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: #1e293b;
+      border: 1px solid #2d3a4e;
+      padding: 0.4rem 1.2rem;
+      border-radius: 40px;
+      font-weight: 500;
+      color: #cbd5e6;
+      transition: all 0.25s;
+      text-decoration: none;
+      font-size: 0.8rem;
+    }
+
+    .btn-github:hover {
+      background: #2d3a4e;
+      border-color: #38bdf8;
+      color: #eef2ff;
+    }
+
     .media-placeholder {
       background: #11161f;
       border-radius: 1.5rem;
@@ -111,7 +128,6 @@
       opacity: 0.7;
     }
 
-    /* tags / skill chips */
     .skill-chip {
       background: #1e293b;
       padding: 0.2rem 1rem;
@@ -131,6 +147,20 @@
       color: #94a3b8;
     }
 
+    .disclaimer-box {
+      background: #1a0f0f;
+      border: 1px solid #8b3a3a;
+      border-radius: 1rem;
+      padding: 0.8rem 1.2rem;
+      margin: 0.8rem 0;
+      font-size: 0.85rem;
+      color: #e8a0a0;
+    }
+
+    .disclaimer-box strong {
+      color: #ff6b6b;
+    }
+
     h1, h2, h3 {
       font-weight: 600;
       letter-spacing: -0.02em;
@@ -143,7 +173,6 @@
       padding-left: 1rem;
     }
 
-    /* responsive grid */
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
@@ -190,6 +219,13 @@
       margin-bottom: 1rem;
       border-left: 3px solid #38bdf8;
     }
+
+    .project-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 0.8rem;
+    }
   </style>
 </head>
 <body>
@@ -233,26 +269,30 @@
     <h2>⚡ PROJECTS</h2>
     <div class="projects-grid">
       
-      <!-- Project 1: UE5 Enemy AI System -->
+      <!-- Project 1: Unity Enemy AI & Skill System -->
       <div class="glass-card" style="padding: 1.5rem; display: flex; flex-direction: column;">
-        <h3 style="font-size: 1.5rem;">UE5 Enemy AI System</h3>
-        <p style="color: #a0afc7; margin: 0.5rem 0 1rem 0;">Designed and implemented a modular enemy AI architecture in Unreal Engine 5. Scalable AI supporting multiple enemy archetypes.</p>
+        <h3 style="font-size: 1.5rem;">Unity Enemy AI & Skill System</h3>
+        <p style="color: #a0afc7; margin: 0.5rem 0 1rem 0;">Built an enemy behavior system with AI state machine, skill mechanics (exploding projectiles), dynamic UI, and responsive movement in Unity.</p>
         <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.2rem;">
-          <span class="project-tag">AI Perception</span>
-          <span class="project-tag">Behavior Trees</span>
-          <span class="project-tag">C++</span>
-          <span class="project-tag">Navigation</span>
+          <span class="project-tag">Unity/C#</span>
+          <span class="project-tag">State Machine</span>
+          <span class="project-tag">Skill System</span>
+          <span class="project-tag">UI</span>
+          <span class="project-tag">Movement</span>
         </div>
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 1.5rem;">
-  <iframe 
-    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
-    src="https://www.youtube.com/embed/i6AYl6jUjZA"
-    frameborder="0" 
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-    allowfullscreen>
-  </iframe>
-</div>
-        <p style="margin-top: 1rem; font-size: 0.9rem;"><strong>Technical Challenge:</strong> Maintaining maintainable architecture with growing enemy complexity while minimizing duplicated logic.</p>
+        <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 1.5rem;">
+          <iframe 
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+            src="https://www.youtube.com/embed/i6AYl6jUjZA"
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/ElevatedBachman/SUPER-BALUBA-GAME" class="btn-github" target="_blank">📁 GitHub Repo</a>
+        </div>
+        <p style="margin-top: 1rem; font-size: 0.9rem;"><strong>Technical Challenge:</strong> Designing a modular skill system that supports diverse abilities while maintaining clean, extensible code architecture.</p>
       </div>
 
       <!-- Project 2: Procedural World Generation -->
@@ -267,6 +307,9 @@
         <div class="media-placeholder" id="media-procedural" onclick="alert('📌 Placeholder: Insert Procedural World Gen video/screenshots here.')">
           <div class="media-icon">🗺️🎥</div>
           <div>🌄 Video Demo / Screenshot</div>
+        </div>
+        <div class="project-links">
+          <a href="#" class="btn-github" target="_blank">📁 GitHub Repo</a>
         </div>
         <p style="margin-top: 1rem; font-size: 0.9rem;"><strong>Challenge:</strong> Generating believable landscapes while maintaining navigability and visual variety.</p>
       </div>
@@ -284,43 +327,65 @@
           <div class="media-icon">👥🎮</div>
           <div>🕹️ Video Demo / Screenshot</div>
         </div>
+        <div class="project-links">
+          <a href="#" class="btn-github" target="_blank">📁 GitHub Repo</a>
+        </div>
         <p style="margin-top: 1rem; font-size: 0.9rem;"><strong>Challenge:</strong> Maintaining synchronization consistency while minimizing network overhead.</p>
       </div>
 
-      <!-- Project 4: XR Underwater Inspection Platform -->
+      <!-- Project 4: XR Reconstruction & Inspection Platform (объединенный) -->
       <div class="glass-card" style="padding: 1.5rem; display: flex; flex-direction: column;">
-        <h3 style="font-size: 1.5rem;">XR Underwater Inspection</h3>
-        <p style="color: #a0afc7; margin: 0.5rem 0 0.25rem 0;">Publication-based project (MDPI Sensors 2024). Unity XR app for inspection of underwater assets using photogrammetry.</p>
-        <span style="font-size: 0.75rem; color: #5f7f9e; margin-bottom: 1rem;">MDPI Sensors 2024</span>
+        <h3 style="font-size: 1.5rem;">Underwater assets 3D Reconstruction & Inspection Platform</h3>
+        <p style="color: #a0afc7; margin: 0.5rem 0 0.25rem 0;">End-to-end solution combining 3D reconstruction pipeline (photogrammetry) and XR visualization for underwater asset inspection.</p>
+        <span style="font-size: 0.75rem; color: #5f7f9e; margin-bottom: 1rem;">qualiTEAS Inc.</span>
         <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.2rem;">
+          <span class="project-tag">Unity</span>
           <span class="project-tag">HoloLens</span>
-          <span class="project-tag">XR Toolkit</span>
           <span class="project-tag">Photogrammetry</span>
-        </div>
-        <div class="media-placeholder" id="media-xr" onclick="alert('📌 Placeholder: Insert XR demo video or HoloLens capture.')">
-          <div class="media-icon">🥽🌊</div>
-          <div>🔍 XR Demo / Screenshot</div>
-        </div>
-        <p style="margin-top: 1rem; font-size: 0.9rem;"><strong>Challenge:</strong> Large reconstruction meshes while maintaining usability on XR devices.</p>
-      </div>
-
-      <!-- Project 5: 3D Reconstruction Pipeline -->
-      <div class="glass-card" style="padding: 1.5rem; display: flex; flex-direction: column;">
-        <h3 style="font-size: 1.5rem;">3D Reconstruction Pipeline</h3>
-        <p style="color: #a0afc7; margin: 0.5rem 0 1rem 0;">Python-based data processing pipelines for photogrammetry, backend support and ML-assisted analysis.</p>
-        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.2rem;">
           <span class="project-tag">Python</span>
           <span class="project-tag">OpenDroneMap</span>
-          <span class="project-tag">REST APIs</span>
         </div>
-        <div class="media-placeholder" id="media-pipeline" onclick="alert('📌 Placeholder: Insert 3D reconstruction pipeline screenshots or diagram.')">
-          <div class="media-icon">📐🖥️</div>
-          <div>📊 Pipeline visualization</div>
+
+        <div class="disclaimer-box">
+          <strong>⚠️ Disclaimer:</strong> Full 3D reconstruction pipeline and detailed sensor data are proprietary intellectual property of the client company. The following demo showcases the XR visualization interface and inspection workflow. For technical details, please refer to the <a href="https://www.qualiteas.ca" target="_blank" style="color:#38bdf8;">qualiTEAS Inc. website</a>.
         </div>
-        <p style="margin-top: 1rem; font-size: 0.9rem;"><strong>Challenge:</strong> Managing large datasets while preserving reconstruction quality and efficiency.</p>
+
+        <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 1.5rem;">
+          <iframe 
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+            src="https://www.youtube.com/embed/DSz1Evkh5Oo"
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <p style="margin-top: 1rem; font-size: 0.9rem;"><strong>Challenge:</strong> Rendering large reconstruction meshes while maintaining interactability on XR devices (for corrosion inspection purpo) and managing huge datasets.</p>
+      </div>
+      
+
+      <!-- Project 5: NRXR-ID System -->
+      <div class="glass-card" style="padding: 1.5rem; display: flex; flex-direction: column;">
+        <h3 style="font-size: 1.5rem;">NRXR-ID System</h3>
+        <p style="color: #a0afc7; margin: 0.5rem 0 0.25rem 0;">Novel framework for XR-based identification and analysis of underwater assets. Integrates mixed reality visualization with real-time inspection workflows.</p>
+        <span style="font-size: 0.75rem; color: #5f7f9e; margin-bottom: 1rem;">MDPI Electronics 2025</span>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.2rem;">
+          <span class="project-tag">Mixed Reality</span>
+          <span class="project-tag">HoloLens</span>
+          <span class="project-tag">Inspection</span>
+          <span class="project-tag">C#</span>
+        </div>
+        <div class="media-placeholder" id="media-nrxr" onclick="alert('📌 Placeholder: Insert NRXR-ID demo video here.')">
+          <div class="media-icon">🔬🎥</div>
+          <div>🧪 NRXR-ID Demo</div>
+        </div>
+        <div class="project-links">
+          <a href="#" class="btn-github" target="_blank">📁 GitHub Repo</a>
+          <a href="https://www.mdpi.com/2079-9292/14/17/3368" target="_blank" class="btn-github">📄 Publication</a>
+        </div>
+        <p style="margin-top: 1rem; font-size: 0.9rem;"><strong>Challenge:</strong> Integrating identification algorithms with XR visualization for real-time underwater asset analysis.</p>
       </div>
 
-      <!-- BONUS: Current project highlight card -->
+      <!-- Project 6: CURRENT PROJECT -->
       <div class="glass-card" style="padding: 1.5rem; background: linear-gradient(145deg, #0b1120, #0f1622); border-color: #2d4a6e;">
         <h3 style="font-size: 1.5rem;">✨ CURRENT PROJECT</h3>
         <p style="font-weight: 600; font-size: 1.2rem; margin: 0.5rem 0 0.25rem;">Advanced NPC AI System (UE5)</p>
@@ -330,10 +395,12 @@
           <span class="skill-chip" style="background: #0f2b3b;">Blackboard</span>
           <span class="skill-chip" style="background: #0f2b3b;">Group AI</span>
         </div>
-        <!-- optional placeholder for current project progress -->
         <div class="media-placeholder" style="margin-top: 1rem; aspect-ratio: 16/9;" onclick="alert('📌 Placeholder: Showcase your Advanced NPC AI dev footage or WIP demo.')">
           <div class="media-icon">🧠⚙️</div>
           <div>🎯 Work-in-progress preview</div>
+        </div>
+        <div class="project-links">
+          <a href="#" class="btn-github" target="_blank">📁 GitHub Repo</a>
         </div>
       </div>
     </div>
@@ -347,12 +414,12 @@
       MDPI Sensors 2024 — <a href="https://www.mdpi.com/1424-8220/24/16/5168" target="_blank" style="color:#38bdf8;">doi.org/10.3390/s24165168</a>
     </div>
     <div class="publication-item">
-      <strong>Mixed Reality Visualization and Inspection System</strong><br>
+      <strong>NRXR-ID: Mixed Reality Visualization and Inspection System</strong><br>
       MDPI Electronics 2025 — <a href="https://www.mdpi.com/2079-9292/14/17/3368" target="_blank" style="color:#38bdf8;">doi.org/10.3390/electronics14173368</a>
     </div>
   </section>
 
-  <!-- TECHNICAL SKILLS (comprehensive block) -->
+  <!-- TECHNICAL SKILLS -->
   <section style="margin: 2rem 0;">
     <h2>🛠️ TECHNICAL SKILLS</h2>
     <div style="display: flex; flex-wrap: wrap; gap: 1.8rem; justify-content: space-between; background: #0f131c99; border-radius: 2rem; padding: 1.8rem;">
@@ -377,17 +444,19 @@
     </div>
   </section>
 
-  <!-- REPLACE NOTE: all Media placeholders are ready for your future videos / images 
-       Below is a special section for larger video highlight (optional flexible block) -->
+  <!-- PORTFOLIO MEDIA SHOWCASE -->
   <section style="margin: 2rem 0;">
     <div class="glass-card" style="padding: 1.8rem;">
       <h3 style="font-size: 1.5rem;">🎥 Portfolio Media Showcase</h3>
       <p style="margin-bottom: 1rem;">Here you can embed your best gameplay trailer, AI demo, or any full portfolio reel. Replace placeholder below.</p>
       <div class="media-placeholder" style="aspect-ratio: 21/9; min-height: 240px;" onclick="alert('📌 Insert your main demo reel / compilation video here (YouTube embed or local video).')">
         <div class="media-icon">🎞️✨</div>
-        <div>🎬 Main Showcase Video / Reel (Drag & drop later)</div>
-        <div style="font-size: 0.7rem;">click to remind — replace with iframe or img</div>
+        <div>🎬 Main Showcase Video / Reel</div>
+        <div style="font-size: 0.7rem;">Click to replace — insert your best highlight reel</div>
       </div>
+      <p style="margin-top: 1rem; font-size: 0.9rem; color: #94a3b8;">
+        <strong>💡 What to put here:</strong> A 1-2 minute compilation of your best work — quick cuts showing enemy AI behavior, procedural generation, multiplayer action, and XR inspection. Think of it as your "sizzle reel" that gives employers an immediate overview of your skills.
+      </p>
     </div>
   </section>
 
@@ -397,12 +466,8 @@
   </footer>
 </div>
 
-<!-- small script to add interactive note (doesn't break design) 
-     this just shows dev-friendly reminder but remains invisible for normal use -->
 <script>
-  // Optional: log to console that placeholders can be replaced dynamically.
-  console.log("Portfolio template ready — replace each .media-placeholder inner HTML with your actual media (video, img, iframe).");
-  // If you want to make placeholders easier to customize, double-click event:
+  console.log("Portfolio template ready — replace each .media-placeholder inner HTML with your actual media.");
   const placeholders = document.querySelectorAll('.media-placeholder');
   placeholders.forEach(ph => {
     ph.addEventListener('dblclick', (e) => {
