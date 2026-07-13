@@ -255,14 +255,90 @@
   </div>
 
   <!-- ABOUT ME section -->
-  <section style="margin: 2rem 0 2.5rem;">
-    <div class="glass-card" style="padding: 2rem;">
-      <h2 style="border-left: none; padding-left: 0; font-size: 1.8rem;">ABOUT ME</h2>
-      <p style="font-size: 1.05rem; margin-top: 0.5rem;">I'm a Gameplay and AI Programmer with experience developing gameplay systems in Unreal Engine 5 and Unity.<br><br>
+<!-- ABOUT ME section -->
+<section style="margin: 2rem 0 2.5rem;">
+  <div class="glass-card" style="padding: 2rem;">
+    <h2 style="border-left: none; padding-left: 0; font-size: 1.8rem;">ABOUT ME</h2>
+    
+    <!-- Короткая версия -->
+    <p style="font-size: 1.05rem; margin-top: 0.5rem;">
+      I'm a Gameplay and AI Programmer with experience developing gameplay systems in Unreal Engine 5 and Unity.<br><br>
       I enjoy building systems that make virtual worlds feel alive—from enemy AI and procedural generation to multiplayer gameplay and XR applications. My interests lie at the intersection of gameplay programming, AI behavior, world simulation, and immersive technologies.<br><br>
-      I am particularly inspired by games such as <strong>Dark Souls, Vampyr, Red Dead Redemption 2, and S.T.A.L.K.E.R.</strong>, where AI and world systems contribute heavily to player immersion.</p>
+      I am particularly inspired by games such as <strong>Dark Souls, Sekiro, Vampyr, Elden Ring, and Where Winds Meet</strong> — where AI, systemic world design, and reactive ecosystems create deeply immersive experiences.
+    </p>
+
+    <!-- Кнопка "Развернуть" -->
+    <button onclick="toggleSpoiler()" style="
+      background: transparent;
+      border: 1px solid #38bdf8;
+      color: #38bdf8;
+      padding: 0.5rem 1.5rem;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      cursor: pointer;
+      margin-top: 1.2rem;
+      transition: all 0.3s;
+      font-family: 'Inter', sans-serif;
+    " onmouseover="this.style.background='#38bdf8'; this.style.color='#0a0c10';" 
+       onmouseout="this.style.background='transparent'; this.style.color='#38bdf8';">
+      📖 Read why these games inspire me
+    </button>
+
+    <!-- Спойлер (скрыт по умолчанию) -->
+    <div id="spoiler-content" style="
+      display: none;
+      margin-top: 1.5rem;
+      padding: 1.5rem;
+      background: rgba(15, 19, 28, 0.6);
+      border-radius: 1.5rem;
+      border-left: 3px solid #38bdf8;
+      font-size: 1rem;
+      line-height: 1.7;
+      color: #cdd9f4;
+    ">
+      <p>
+        What draws me to these games is how they treat the world as a <strong>living system</strong> rather than just a backdrop.
+      </p>
+      <br>
+      <p>
+        In <strong>Dark Souls</strong> and <strong>Elden Ring</strong>, enemy placement, patrol routes, and AI behavior tell stories without a single line of dialogue — a Hollow's patrol pattern or a Crucible Knight's aggression communicates lore and danger through gameplay. The AI isn't just a combat opponent; it's a <strong>narrative device</strong>.
+      </p>
+      <br>
+      <p>
+        <strong>Sekiro</strong> takes this further with its posture-based combat system, where enemy AI reacts to your offensive and defensive choices in a dance-like rhythm. Every encounter feels like a <strong>conversation</strong> — the AI reads your patterns, adapts, and forces you to adapt in return.
+      </p>
+      <br>
+      <p>
+        <strong>Vampyr</strong> offers a different kind of systemic depth: its NPCs are interconnected through a web of relationships, and your choices as a vampire have ripple effects across the entire district. This is a system that feels <strong>alive and responsive</strong>, not just a static quest log — a perfect example of world simulation at a narrative level.
+      </p>
+      <br>
+      <p>
+        <strong>Where Winds Meet</strong> represents the next generation of open-world systemic design, where dynamic weather, wildlife behavior, and reactive NPC populations create a world that feels truly <strong>inhabited</strong>, not just populated. It's the kind of systemic density I want to bring into my own work.
+      </p>
+      <br>
+      <p>
+        These games inspire me to build systems where AI isn't just functional — it's <strong>narrative, reactive, and emergent</strong>. I want to create worlds where players feel like their actions matter because the systems around them genuinely respond, adapt, and remember.
+      </p>
     </div>
-  </section>
+  </div>
+</section>
+
+<!-- JavaScript для переключения спойлера -->
+<script>
+  function toggleSpoiler() {
+    const content = document.getElementById('spoiler-content');
+    const button = document.querySelector('button[onclick="toggleSpoiler()"]');
+    
+    if (content.style.display === 'none' || content.style.display === '') {
+      content.style.display = 'block';
+      button.textContent = '📕 Hide explanation';
+    } else {
+      content.style.display = 'none';
+      button.textContent = '📖 Read why these games inspire me';
+    }
+  }
+</script>
 
   <!-- PROJECTS section -->
   <section style="margin: 2.5rem 0;">
@@ -304,9 +380,14 @@
           <span class="project-tag">Perlin Noise</span>
           <span class="project-tag">Runtime Terrain</span>
         </div>
-        <div class="media-placeholder" id="media-procedural" onclick="alert('📌 Placeholder: Insert Procedural World Gen video/screenshots here.')">
-          <div class="media-icon">🗺️🎥</div>
-          <div>🌄 Video Demo / Screenshot</div>
+        <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 1.5rem;">
+          <iframe 
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+            src="https://www.youtube.com/embed/TLjBo6Lu3zs"
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
         </div>
         <div class="project-links">
           <a href="#" class="btn-github" target="_blank">📁 GitHub Repo</a>
@@ -314,24 +395,47 @@
         <p style="margin-top: 1rem; font-size: 0.9rem;"><strong>Challenge:</strong> Generating believable landscapes while maintaining navigability and visual variety.</p>
       </div>
 
-      <!-- Project 3: Multiplayer Game Prototype -->
-      <div class="glass-card" style="padding: 1.5rem; display: flex; flex-direction: column;">
-        <h3 style="font-size: 1.5rem;">Multiplayer Game Prototype</h3>
-        <p style="color: #a0afc7; margin: 0.5rem 0 1rem 0;">Built multiplayer systems with Photon Fusion — matchmaking, session discovery, state synchronization.</p>
-        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.2rem;">
-          <span class="project-tag">Photon Fusion</span>
-          <span class="project-tag">Netcode</span>
-          <span class="project-tag">C#</span>
-        </div>
-        <div class="media-placeholder" id="media-multiplayer" onclick="alert('📌 Placeholder: Add Multiplayer demo footage or screenshots here.')">
-          <div class="media-icon">👥🎮</div>
-          <div>🕹️ Video Demo / Screenshot</div>
-        </div>
-        <div class="project-links">
-          <a href="#" class="btn-github" target="_blank">📁 GitHub Repo</a>
-        </div>
-        <p style="margin-top: 1rem; font-size: 0.9rem;"><strong>Challenge:</strong> Maintaining synchronization consistency while minimizing network overhead.</p>
-      </div>
+      <!-- Project 3: NRXR-ID System -->
+<div class="glass-card" style="padding: 1.5rem; display: flex; flex-direction: column;">
+  <h3 style="font-size: 1.5rem;">NRXR-ID: Two-Factor Authentication for XR</h3>
+  <p style="color: #a0afc7; margin: 0.5rem 0 0.25rem 0;">
+    A novel two-factor authentication (2FA) system for extended reality environments that allows users to complete secure identity verification using their smartphone — without removing their head-mounted display (HMD).
+  </p>
+  <span style="font-size: 0.75rem; color: #5f7f9e; margin-bottom: 1rem;">MDPI Electronics 2025</span>
+  
+  <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.2rem;">
+    <span class="project-tag">Mixed Reality</span>
+    <span class="project-tag">HoloLens</span>
+    <span class="project-tag">2FA</span>
+    <span class="project-tag">C#</span>
+    <span class="project-tag">User Study</span>
+  </div>
+
+  <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 1.5rem;">
+    <iframe 
+      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+      src="https://www.youtube.com/embed/vkG0bqCmT2E"
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+  </div>
+
+  <div class="project-links">
+    <a href="https://github.com/AiurNanzatov/NRXR-ID" class="btn-github" target="_blank">📁 GitHub Repo</a>
+    <a href="https://www.mdpi.com/2079-9292/14/17/3368" target="_blank" class="btn-github">📄 Publication</a>
+  </div>
+  
+  <div class="project-links" style="margin-top: 0.5rem;">
+    <a href="https://www.youtube.com/watch?v=FOSv3jR5IRw" target="_blank" class="btn-github" style="background: #0f2b3b; border-color: #38bdf8;">
+      🎥 Full Walkthrough Video (5 min)
+    </a>
+  </div>
+
+  <p style="margin-top: 1rem; font-size: 0.9rem;">
+    <strong>Challenge:</strong> Traditional 2FA (SMS, authenticator apps) is impractical in VR/XR — users are fully immersed and cannot see their real-world surroundings to access their phone or authenticator device. NRXR-ID solves this by enabling smartphone-based authentication without breaking immersion.
+  </p>
+</div>
 
       <!-- Project 4: XR Reconstruction & Inspection Platform (объединенный) -->
       <div class="glass-card" style="padding: 1.5rem; display: flex; flex-direction: column;">
@@ -361,31 +465,9 @@
         </div>
         <p style="margin-top: 1rem; font-size: 0.9rem;"><strong>Challenge:</strong> Rendering large reconstruction meshes while maintaining interactability on XR devices (for corrosion inspection purpo) and managing huge datasets.</p>
       </div>
-      
+        
 
-      <!-- Project 5: NRXR-ID System -->
-      <div class="glass-card" style="padding: 1.5rem; display: flex; flex-direction: column;">
-        <h3 style="font-size: 1.5rem;">NRXR-ID System</h3>
-        <p style="color: #a0afc7; margin: 0.5rem 0 0.25rem 0;">Novel framework for XR-based identification and analysis of underwater assets. Integrates mixed reality visualization with real-time inspection workflows.</p>
-        <span style="font-size: 0.75rem; color: #5f7f9e; margin-bottom: 1rem;">MDPI Electronics 2025</span>
-        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.2rem;">
-          <span class="project-tag">Mixed Reality</span>
-          <span class="project-tag">HoloLens</span>
-          <span class="project-tag">Inspection</span>
-          <span class="project-tag">C#</span>
-        </div>
-        <div class="media-placeholder" id="media-nrxr" onclick="alert('📌 Placeholder: Insert NRXR-ID demo video here.')">
-          <div class="media-icon">🔬🎥</div>
-          <div>🧪 NRXR-ID Demo</div>
-        </div>
-        <div class="project-links">
-          <a href="#" class="btn-github" target="_blank">📁 GitHub Repo</a>
-          <a href="https://www.mdpi.com/2079-9292/14/17/3368" target="_blank" class="btn-github">📄 Publication</a>
-        </div>
-        <p style="margin-top: 1rem; font-size: 0.9rem;"><strong>Challenge:</strong> Integrating identification algorithms with XR visualization for real-time underwater asset analysis.</p>
-      </div>
-
-      <!-- Project 6: CURRENT PROJECT -->
+      <!-- Project 5: CURRENT PROJECT -->
       <div class="glass-card" style="padding: 1.5rem; background: linear-gradient(145deg, #0b1120, #0f1622); border-color: #2d4a6e;">
         <h3 style="font-size: 1.5rem;">✨ CURRENT PROJECT</h3>
         <p style="font-weight: 600; font-size: 1.2rem; margin: 0.5rem 0 0.25rem;">Advanced NPC AI System (UE5)</p>
@@ -440,6 +522,8 @@
         <span class="skill-chip">GraphQL</span><span class="skill-chip">PostgreSQL</span><span class="skill-chip">MongoDB</span></div>
         <p style="font-weight: 700; margin: 1rem 0 0.7rem;">Cloud & DevOps</p>
         <div><span class="skill-chip">AWS</span><span class="skill-chip">Azure</span><span class="skill-chip">Docker</span><span class="skill-chip">CI/CD</span></div>
+        <p style="font-weight: 700; margin: 1rem 0 0.7rem;">AI-Assisted Development & Tooling</p>
+        <div><span class="skill-chip">Codex</span><span class="skill-chip">Claude Code</span><span class="skill-chip">Cursor</span><span class="skill-chip">Prompt Engineering</span><span class="skill-chip">Agentic Workflows</span></div>
       </div>
     </div>
   </section>
